@@ -27,7 +27,7 @@ void CpuPlayer::searchHealCard(int& targetCard)
 
         if(typeid(*c) == typeid(HealCard))
         {
-            HealCard* card= static_cast<HealCard*>(it->get());
+            HealCard* card= static_cast<HealCard*>(c);
 
             if(card->getHeartsNumber()>max)
             {
@@ -64,13 +64,13 @@ void CpuPlayer::searchPossibleAttack(DLList<DeepPtr<Player>>& players, int& targ
         c= it->get();
         if(typeid(*c) == typeid(SingleAttackCard))
         {
-            SingleAttackCard* card= static_cast<SingleAttackCard*>(it->get());
+            SingleAttackCard* card= static_cast<SingleAttackCard*>(c);
 
             searchPossibleKill(players, targetPlayer, card->getHeartsNumber());
         }
         else if(typeid(*c) == typeid(MultipleAttackCard))
         {
-            MultipleAttackCard* card= static_cast<MultipleAttackCard*>(it->get());
+            MultipleAttackCard* card= static_cast<MultipleAttackCard*>(c);
 
             if(getHealth() > card->getHeartsNumber())//se l'attacco multiplo non fa suicidare il player
             {
@@ -111,7 +111,7 @@ std::string CpuPlayer::playTurn(DLList<DeepPtr<Player>>& players)
         if(targetCard==-1)//se non si deve curare, cerca di attaccare per fare una kill
             searchPossibleAttack(players, targetCard, targetPlayer);
 
-        if(targetCard==-1)//altrimenti giocata casuale con l'accortezza di non suicidarsi
+        if(targetCard==-1)//altrimenti giocata casuale
         {
             srand(time(NULL));
 
@@ -138,8 +138,7 @@ std::string CpuPlayer::playTurn(DLList<DeepPtr<Player>>& players)
             }
         }
 
-        std::string move;
-        move= getName()+" usa "+getHand()[targetCard]->getName()+" su "+players[targetPlayer]->getName();
+        std::string move= getName()+" usa "+getHand()[targetCard]->getName()+" su "+players[targetPlayer]->getName();
 
         getHand()[targetCard]->do_effect(players, targetPlayer);
         removeCardFromHand(targetCard);
