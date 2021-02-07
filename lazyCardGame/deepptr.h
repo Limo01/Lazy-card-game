@@ -65,7 +65,7 @@ public:
 };
 
 template <class T>
-DeepPtr<T>::DeepPtr(T* p):ptr(p!=nullptr? p->clone() : nullptr){};
+DeepPtr<T>::DeepPtr(T* p):ptr(p!=nullptr? p->clone() : nullptr){delete p;};
 
 template <class T>
 DeepPtr<T>::DeepPtr(const DeepPtr& p): ptr(p.ptr? p.ptr->clone() : nullptr){};
