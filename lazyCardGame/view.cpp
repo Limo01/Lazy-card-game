@@ -4,14 +4,14 @@ void View::addMenus(QGridLayout* gridLayout)
 {
     QMenuBar* menuBar = new QMenuBar(this);
 
-    game = new QMenu("Gioco", menuBar);
+    game = new QMenu("Game", menuBar);
 
     menuBar->addMenu(game);
 
-    // Menù "Gioco"
-    game->addAction(new QAction("Nuova partita", game));
-    game->addAction(new QAction("Effetto carte", game));
-    game->addAction(new QAction("Regole", game));
+    // Menù "Game"
+    game->addAction(new QAction("New Game", game));
+    game->addAction(new QAction("Cards Effect", game));
+    game->addAction(new QAction("Rules", game));
 
     menuBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
@@ -36,8 +36,8 @@ void View::addPlayerInfo(QGridLayout* gridLayout)
     QVBoxLayout* layout= new QVBoxLayout;
 
     player= new PlayerInfo(this);
-    turnLabel= new QLabel("Turno: 1", this);
-    playButton= new QPushButton("Esegui mossa", this);
+    turnLabel= new QLabel("Turn: 1", this);
+    playButton= new QPushButton("Make move", this);
 
     QFont f( "Arial", 14);
     playButton->setFont(f);
@@ -61,7 +61,7 @@ void View::addLogArea(QGridLayout* gridLayout)
 {
     QVBoxLayout* layout= new QVBoxLayout;
 
-    QLabel* titleLog= new QLabel("Log mosse", this);
+    QLabel* titleLog= new QLabel("Moves log", this);
     log= new QTextEdit(this);
 
     QFont f("Arial", 10, QFont::Bold);
@@ -84,15 +84,15 @@ View::View(QWidget* parent) : QWidget(parent)
 
     addCpuPlayersInfo(gridLayout);
 
-    //info giocatore utente
+    //user player info
     addPlayerInfo(gridLayout);
 
-    //lista carte
-    cardsList= new RadioButtonsList("Carte", this);
+    //cards list
+    cardsList= new RadioButtonsList("Cards", this);
     gridLayout->addWidget(cardsList, 2, 0, 2, 1);
 
-    //lista giocatori
-    playersList= new RadioButtonsList("Giocatori", this);
+    //players list
+    playersList= new RadioButtonsList("Players", this);
     gridLayout->addWidget(playersList, 2, 2, 2, 1);
 
     //log text area
@@ -161,7 +161,7 @@ void View::showTargetPlayers(DLList<DeepPtr<Player>>& players)
 
 void View::showTurn(int i)
 {
-    turnLabel->setText("Turno: "+QString::number(i));
+    turnLabel->setText("Turn: "+QString::number(i));
 };
 
 void View::showMovesLog(const std::string& movesLog)
@@ -193,14 +193,15 @@ void View::showGameRules()
     QDialog* dialog = new QDialog(this);
     QLabel* dialogText= new QLabel(dialog);
 
-    QString rules=  "Regole: \n"
-                    "Ogni giocatore possiede un mazzo di 52 carte. \n"
-                    "A inizio partita ogni giocatore pesca 5 carte. \n"
-                    "Viene giocata obbligatoriamente una carta per turno. \n"
-                    "Ogni carta ha un effetto diverso (consulta l'effetto delle carte che hai in mano cliccando su Gioco->Effetto carte). \n"
-                    "Alla fine del turno viene pescata una carta. \n"
-                    "L'obiettivo del gioco è azzerare la vita di tutti gli altri giocatori. \n"
-                    "Se un giocatore non ha più carte nel mazzo, per ogni carta che deve pescare gli vengono sottratti 3 cuori.";
+    QString rules=  "Rules: \n"
+                    "Each player has a deck of 52 cards. \n"
+                    "At the start of the game, each player draws 5 cards. \n"
+                    "One card is compulsorily played per turn. \n"
+                    "Each card has a different effect (consult the effect of the cards in your hand by clicking on Game -> Cards Effect). \n"
+                    "At the end of the turn, a card is drawn. \n"
+                    "The goal of the game is to bring all other players' lives to zero. \n"
+                    "If a player has no more cards in the deck, 3 hearts are subtracted from him for each card he has to draw."
+                    "If multiple skip turn cards are played against a player, that player will consecutively skip one turn for each card.";
 
     dialogText->setText(rules);
 

@@ -13,47 +13,47 @@ class Card
 {
 public:
     /**
-     * @brief ~Card => Distruttore della classe Card
+     * @brief ~Card => Class Card destructor
      */
     virtual ~Card();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     virtual Card* clone() const = 0;
 
     /**
      * @brief do_effect
-     * @param players => lista dei giocatori
-     * @param target => giocatore su cui applicare l'effetto della carta
+     * @param players => players list
+     * @param target => player to apply the card effect to
      */
     virtual void do_effect(DLList<DeepPtr<Player>>& players, int target=-1) const = 0;
 
     /**
      * @brief getName
-     * @return nome della carta
+     * @return card name
      */
     virtual std::string getName() const = 0;
 
     /**
      * @brief getDescription
-     * @return descrizione della carta
+     * @return card description
      */
     virtual std::string getDescription() const = 0;
 
     /**
      * @brief operator ==
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono uguali, false altrimenti
+     * @param Card => card to compare
+     * @return true if the cards are equals, false otherwise
      */
     virtual bool operator==(const Card&) const;
 
 
     /**
      * @brief operator !=
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono diverse, false altrimenti
+     * @param Card => card to compare
+     * @return true if the cards are different, false otherwise
      */
     virtual bool operator!=(const Card&) const;
 };

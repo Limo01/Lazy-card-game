@@ -72,7 +72,7 @@ void CpuPlayer::searchPossibleAttack(DLList<DeepPtr<Player>>& players, int& targ
         {
             MultipleAttackCard* card= static_cast<MultipleAttackCard*>(c);
 
-            if(getHealth() > card->getHeartsNumber())//se l'attacco multiplo non fa suicidare il player
+            if(getHealth() > card->getHeartsNumber())//if the multiple attack does not cause the player to commit suicide
             {
                 searchPossibleKill(players, targetPlayer, card->getHeartsNumber());
             }
@@ -102,43 +102,43 @@ std::string CpuPlayer::playTurn(DLList<DeepPtr<Player>>& players)
         int targetCard=-1;
         int targetPlayer=-1;
 
-        if(getHealth()<=10)//prima di tutto guarda se si deve curare
+        if(getHealth()<=10)//first of all check if it should be treated
         {
             findThisTarget(players, targetPlayer);
             searchHealCard(targetCard);
         }
 
-        if(targetCard==-1)//se non si deve curare, cerca di attaccare per fare una kill
+        if(targetCard==-1)//if he doesn't have to cure, he tries to attack to make a kill
             searchPossibleAttack(players, targetCard, targetPlayer);
 
-        if(targetCard==-1)//altrimenti giocata casuale
+        if(targetCard==-1)//otherwise random move
         {
             srand(time(NULL));
 
             targetCard= rand()%getHandSize();
             Card* c= getHand()[targetCard].get();
 
-            if(typeid(*c)==typeid(SingleAttackCard) || typeid(*c)==typeid(DiscardCardsCard))//se la carta è di tipo attacco singolo o scarta carte
+            if(typeid(*c)==typeid(SingleAttackCard) || typeid(*c)==typeid(DiscardCardsCard))//if the card is single attack or discard cards
             {
                 targetPlayer= rand()%players.getSize();
 
-                while(players[targetPlayer].get()==this || !players[targetPlayer]->isInGame())//non deve scegliersi da solo come bersaglio e il target ovviamente deve essere vivo
+                while(players[targetPlayer].get()==this || !players[targetPlayer]->isInGame())//he doesn't have to target himself and the target obviously has to be alive
                     targetPlayer= rand()%players.getSize();
             }
-            else if(typeid(*c)==typeid(HealCard))//se è una carta cura, il target è sempre se stesso
+            else if(typeid(*c)==typeid(HealCard))//if it is a heal card, the target is always himself
             {
                 findThisTarget(players, targetPlayer);
             }
-            else//altri tipi di carte
+            else//other card types
             {
                 targetPlayer= rand()%players.getSize();
 
-                while(!players[targetPlayer]->isInGame())//il target deve essere vivo
+                while(!players[targetPlayer]->isInGame())//the target must be alive
                     targetPlayer= rand()%players.getSize();
             }
         }
 
-        std::string move= getName()+" usa "+getHand()[targetCard]->getName()+" su "+players[targetPlayer]->getName();
+        std::string move= getName()+" uses "+getHand()[targetCard]->getName()+" to "+players[targetPlayer]->getName();
 
         getHand()[targetCard]->do_effect(players, targetPlayer);
         removeCardFromHand(targetCard);
@@ -148,6 +148,6 @@ std::string CpuPlayer::playTurn(DLList<DeepPtr<Player>>& players)
     else
     {
         removeSkipTurn();
-        return getName()+" salta il turno";
+        return getName()+" skips the turn";
     }
 };

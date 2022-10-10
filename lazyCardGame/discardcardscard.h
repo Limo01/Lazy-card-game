@@ -7,38 +7,38 @@ class DiscardCardsCard : public PlayerCardsEffectCard
 {
 public:
     /**
-     * @brief DiscardCardsCard => Costruttore della classe DiscardCardsCard
-     * @param int=> numero di carte da scartare dal deck di un giocatore (deve essere > 0)
+     * @brief DiscardCardsCard => Class DiscardCardsCard constructor
+     * @param int=> number of cards to discard from a player's deck (must be > 0)
      */
     DiscardCardsCard(int);
 
     /**
-     * @brief ~DiscardCardsCard => Distruttore della classe DiscardCardsCard
+     * @brief ~DiscardCardsCard => Class DiscardCardsCard destructor
      */
     virtual ~DiscardCardsCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     DiscardCardsCard* clone() const override;
 
     /**
      * @brief do_effect
-     * @param players => lista dei giocatori
-     * @param target => giocatore su cui applicare l'effetto della carta
+     * @param players => list of player
+     * @param target => player to apply the card effect to
      */
     void do_effect(DLList<DeepPtr<Player>>& players, int target=-1) const override;
 
     /**
      * @brief getName
-     * @return nome della carta
+     * @return card name
      */
     std::string getName() const override;
 
     /**
      * @brief getDescription
-     * @return descrizione della carta
+     * @return card description
      */
     std::string getDescription() const override;
 };

@@ -10,39 +10,39 @@ private:
 
 public:
     /**
-     * @brief PlayerHandEffectCard => Costruttore della classe PlayerHandEffectCard
-     * @param int => numero di carte dell'effetto (deve essere > 0)
+     * @brief PlayerHandEffectCard => Class PlayerHandEffectCard constructor
+     * @param int => Number of cards in the effect (must be> 0)
      */
     PlayerCardsEffectCard(int);
 
     /**
-     * @brief ~PlayerHandEffectCard => Distruttore della classe PlayerHandEffectCard
+     * @brief ~PlayerHandEffectCard => Class PlayerHandEffectCard destructor
      */
     virtual ~PlayerCardsEffectCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     virtual PlayerCardsEffectCard* clone() const override= 0;
 
     /**
      * @brief getCradsNumber
-     * @return numero di carte dell'effetto
+     * @return number of cards of the effect
      */
     int getCradsNumber() const;
 
     /**
      * @brief operator ==
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono uguali, false altrimenti
+     * @param Card => Card to compare
+     * @return true if the two cards are equal, false otherwise
      */
     virtual bool operator==(const Card&) const override;
 
     /**
      * @brief operator !=
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono diverse, false altrimenti
+     * @param Card => Card to compare
+     * @return true if the two cards are different, false otherwise
      */
     virtual bool operator!=(const Card&) const override;
 };

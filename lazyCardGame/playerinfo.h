@@ -17,22 +17,22 @@ private:
 
 public:
     /**
-     * @brief PlayerInfo => Costruttore della classe PlayerInfo
-     * @param parent => QWidget*, puntatore al parent
-     * @param heartsN => int, numero di cuori (default 30)
-     * @param deckS => int, numero di carte nel mazzo (default 47)
+     * @brief PlayerInfo => Class PlayerInfo constructor
+     * @param parent => QWidget*, pointer to parent
+     * @param heartsN => int, number of hearts (default 30)
+     * @param deckS => int, number of cards in the deck (default 47)
      */
     PlayerInfo(QWidget* parent = nullptr, int heartsN=30, int deckS=47);
 
     /**
-     * @brief setHeartsNumber => Funzione per settare il numero di cuori
-     * @param h => int, numero cuori
+     * @brief setHeartsNumber => Function to set the number of hearts
+     * @param h => int, hearts number
      */
     void setHeartsNumber(int h);
 
     /**
-     * @brief setDeckSize => Funzione per settare il numero di carte nel mazzo
-     * @param s => int, numero carte
+     * @brief setDeckSize => Function to set the number of cards in the deck
+     * @param s => int, cards number
      */
     void setDeckSize(int s);
 };

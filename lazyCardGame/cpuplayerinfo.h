@@ -17,30 +17,30 @@ private:
 
 public:
     /**
-     * @brief CpuPlayerInfo => Costruttore della classe CpuPlayerInfo
-     * @param name => std::string, nome del giocatore
-     * @param parent => QWidget*, puntatore al parent
-     * @param handS => int, numero di carte nella mano (default 5)
-     * @param deckS => int, numero di carte nel mazzo (default 47)
-     * @param heartsN => int, numero di cuori (default 30)
+     * @brief CpuPlayerInfo => Class CpuPlayerInfo constructor
+     * @param name => std::string, player name
+     * @param parent => QWidget*, pointer to parent
+     * @param handS => int, number of cards in the hand (default 5)
+     * @param deckS => int, number of cards in the deck (default 47)
+     * @param heartsN => int, number of hearts (default 30)
      */
     CpuPlayerInfo(const QString& name, QWidget* parent = nullptr, int handS=5, int deckS=47, int heartsN=30);
 
     /**
-     * @brief setHandSize => Funzione per settare il numero di carte nella mano
-     * @param s => int, numero carte
+     * @brief setHandSize => Function to set the number of cards in the hand
+     * @param s => int, number of cards
      */
     void setHandSize(int s);
 
     /**
-     * @brief setDeckSize => Funzione per settare il numero di carte nel mazzo
-     * @param s => int, numero carte
+     * @brief setDeckSize => Function to set the number of cards in the deck
+     * @param s => int, number of cards
      */
     void setDeckSize(int s);
 
     /**
-     * @brief setHeartsNumber => Funzione per settare il numero di cuori
-     * @param h => int, numero cuori
+     * @brief setHeartsNumber => Function to set the number of hearts
+     * @param h => int, number of hearts
      */
     void setHeartsNumber(int h);
 };

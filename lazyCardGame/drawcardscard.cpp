@@ -17,10 +17,10 @@ void DrawCardsCard::do_effect(DLList<DeepPtr<Player>>& players, int target) cons
 
 std::string DrawCardsCard::getName() const
 {
-    return "Pesca " + std::to_string(getCradsNumber());
+    return "Draw " + std::to_string(getCradsNumber());
 };
 
 std::string DrawCardsCard::getDescription() const
 {
-    return "Scegli un giocatore al quale far pescare " + std::to_string(getCradsNumber()) + " carte";
+    return "Choose a player to make him draw " + std::to_string(getCradsNumber()) + " cards";
 };

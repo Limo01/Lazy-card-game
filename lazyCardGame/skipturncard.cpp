@@ -16,10 +16,10 @@ void SkipTurnCard::do_effect(DLList<DeepPtr<Player>>& players, int target) const
 
 std::string SkipTurnCard::getName() const
 {
-    return "Salta turno";
+    return "Skip turn";
 };
 
 std::string SkipTurnCard::getDescription() const
 {
-    return "Scegli un giocatore al quale far saltare un turno";
+    return "Choose a player to make him skip a turn";
 };

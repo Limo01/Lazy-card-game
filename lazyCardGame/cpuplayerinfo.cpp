@@ -36,12 +36,12 @@ CpuPlayerInfo::CpuPlayerInfo(const QString& name, QWidget* parent, int handS, in
 
 void CpuPlayerInfo::setHandSize(int s)
 {
-    handSize->setText("Carte nella mano: "+QString::number(s));
+    handSize->setText("Cards in the hand: "+QString::number(s));
 };
 
 void CpuPlayerInfo::setDeckSize(int s)
 {
-    deckSize->setText("Carte nel mazzo: "+QString::number(s));
+    deckSize->setText("Cards in the deck: "+QString::number(s));
 };
 
 void CpuPlayerInfo::setHeartsNumber(int h)

@@ -7,38 +7,38 @@ class SingleAttackCard : public HealthEffectCard
 {
 public:
     /**
-     * @brief SingleAttackCard => Costruttore della classe SingleAttackCard
-     * @param int => numero di cuori da rimuovere dalla vita di un giocatore (deve essere > 0)
+     * @brief SingleAttackCard => Class SingleAttackCard constructor
+     * @param int => Number of hearts to be removed from a player's life (must be> 0)
      */
     SingleAttackCard(int);
 
     /**
-     * @brief ~SingleAttackCard => Distruttore della classe SingleAttackCard
+     * @brief ~SingleAttackCard => Class SingleAttackCard destructor
      */
     virtual ~SingleAttackCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     SingleAttackCard* clone() const override;
 
     /**
      * @brief do_effect
-     * @param players => lista dei giocatori
-     * @param target => giocatore su cui applicare l'effetto della carta
+     * @param players => Players list
+     * @param target => Player to apply the card effect to
      */
     void do_effect(DLList<DeepPtr<Player>>& players, int target=-1) const override;
 
     /**
      * @brief getName
-     * @return nome della carta
+     * @return card name
      */
     std::string getName() const override;
 
     /**
      * @brief getDescription
-     * @return descrizione della carta
+     * @return card description
      */
     std::string getDescription() const override;
 };

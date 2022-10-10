@@ -22,49 +22,49 @@ private:
 
 public:
     /**
-     * @brief Model=> Costruttore della classe Model
-     * @param std::string => nome del giocatore (non cpu player)
+     * @brief Model=> Class Model constructor
+     * @param std::string => player name (not cpu player)
      */
     Model(std::string="Player");
 
     /**
-     * @brief ~Model=> Distruttore della classe Model
+     * @brief ~Model=> Class Model destructor
      */
     ~Model();
 
     /**
      * @brief getLogMoves
-     * @return log di tutte le mosse effettuate fino a quel momento
+     * @return log of all the moves made up to that moment
      */
     const std::string& getMovesLog() const;
 
     /**
      * @brief getPlayersInfo
-     * @return lista dei giocatori
+     * @return list of players
      */
     DLList<DeepPtr<Player>>& getPlayersInfo();
 
     /**
      * @brief getTurnNumber
-     * @return numero del turno
+     * @return turn number
      */
     int getTurnNumber() const;
 
     /**
-     * @brief playTurn => Funzione per il turno del giocatore
-     * @param cardTarget => int, indice della carta da giocare
-     * @param playerTarget => int, indice del giocatore sul quale giocare la carta selezionata
+     * @brief playTurn => Player turn function
+     * @param cardTarget => int, index of the card to be played
+     * @param playerTarget => int, index of the player on which play the selected card
      */
     void playTurn(int cardTarget, int playerTarget);
 
     /**
      * @brief isGameFinished
-     * @return true se il gioco è finito, false altrimenti
+     * @return true if the game is over, false otherwise
      */
     bool isGameFinished();
 
     /**
-     * @brief restart => Funzione per cominciare una nuova partita
+     * @brief restart => Function to start a new game
      */
     void restartGame();
 };

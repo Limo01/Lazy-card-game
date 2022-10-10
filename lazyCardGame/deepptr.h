@@ -8,58 +8,58 @@ private:
     T* ptr;
 public:
     /**
-     * @brief DeepPtr => Costruttore della classe DeepPtr
-     * @param p => T*, puntatore all'oggetto
+     * @brief DeepPtr => Class DeepPtr constructor
+     * @param p => T*, pointer to the object
      */
     DeepPtr(T* p=nullptr);
 
     /**
-     * @brief DeepPtr => Costruttore di copia della classe DeepPtr
-     * @param p => DeepPtr, oggetto da copiare passato per riferimento costante. Il tipo T deve implementare il metodo clone
+     * @brief DeepPtr => Class DeepPtr copy contructor
+     * @param p => DeepPtr, object to copy passed by constant reference. Type T must implement the clone method
      */
     DeepPtr(const DeepPtr& p);
 
     /**
-     * @brief Distruttore della classe DeepPtr
+     * @brief Class DeepPtr destructor
      */
     ~DeepPtr(){delete ptr;};
 
     /**
      * @brief operator =
-     * @param p => DeepPtr, oggetto da assegnare passato per riferimento costante
-     * @return DeepPtr, dereferenzizione di this con ptr clonato ritornato per referenza
+     * @param p => DeepPtr, object to assign passed by constant reference
+     * @return DeepPtr, dereferencing this with cloned ptr returned by reference
      */
     DeepPtr& operator=(const DeepPtr& p);
 
     /**
      * @brief get
-     * @return T*, puntatore interno alla classe
+     * @return T*, pointer inside the class
      */
     T* get() const;
 
     /**
      * @brief operator ->
-     * @return T*, puntatore interno alla classe
+     * @return T*, pointer inside the class
      */
     T* operator->() const;
 
     /**
      * @brief operator *
-     * @return T, dereferenziazione del puntatore interno alla classe passato per referenza
+     * @return T, dereference of the internal pointer to the class passed by reference
      */
     T& operator*() const;
 
     /**
      * @brief operator ==
-     * @param p => DeepPtr, oggetto da confrontare
-     * @return true se sono uguali, altrimenti false
+     * @param p => DeepPtr, object to compare
+     * @return true if they are equal, false otherwise
      */
     bool operator==(const DeepPtr& p) const;
 
     /**
      * @brief operator !=
-     * @param p => DeepPtr, oggetto da confrontare
-     * @return true se sono diversi, altrimenti false
+     * @param p => DeepPtr, object to compare
+     * @return true if they are different, false otherwise
      */
     bool operator!=(const DeepPtr& p) const;
 };

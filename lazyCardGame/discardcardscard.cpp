@@ -22,10 +22,10 @@ void DiscardCardsCard::do_effect(DLList<DeepPtr<Player>>& players, int target) c
 
 std::string DiscardCardsCard::getName() const
 {
-    return "Scarta " + std::to_string(getCradsNumber());
+    return "Discard " + std::to_string(getCradsNumber());
 };
 
 std::string DiscardCardsCard::getDescription() const
 {
-    return "Scegli un giocatore al quale far scartare " + std::to_string(getCradsNumber()) + " carte dal proprio mazzo";
+    return "Choose a player to make him discard " + std::to_string(getCradsNumber()) + "cards from his deck";
 };

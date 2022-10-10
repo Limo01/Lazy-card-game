@@ -16,10 +16,10 @@ void SingleAttackCard::do_effect(DLList<DeepPtr<Player>>& players, int target) c
 
 std::string SingleAttackCard::getName() const
 {
-    return "Attacco singolo " + std::to_string(getHeartsNumber());
+    return "Single attack " + std::to_string(getHeartsNumber());
 };
 
 std::string SingleAttackCard::getDescription() const
 {
-    return "Scegli un giocatore a cui rimuovere " + std::to_string(getHeartsNumber()) + " cuori";
+    return "Choose a player to remove from " + std::to_string(getHeartsNumber()) + " hearts";
 };

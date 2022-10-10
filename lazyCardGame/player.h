@@ -20,89 +20,89 @@ private:
 
 public:
     /**
-     * @brief Player => Costruttore della classe Player
-     * @param std::string => nome del giocatore
-     * @param Deck<DeepPtr<Card>> => deck di carte
-     * @param int => vita iniziale del giocatore (valore di default=30);
+     * @brief Player => Class Player constructor
+     * @param std::string => Player name
+     * @param Deck<DeepPtr<Card>> => Cards deck
+     * @param int => Player's initial life (default value = 30)
      */
     Player(const std::string&, const Deck<DeepPtr<Card>>&, int=30);
 
     /**
-     * @brief ~Player => Distruttore della classe Player
+     * @brief ~Player => Class Player destructor
      */
     virtual ~Player();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     virtual Player* clone() const;
 
     /**
      * @brief getName
-     * @return nome del giocatore
+     * @return player name
      */
     std::string getName() const;
 
     /**
      * @brief setHealth
-     * @param int => valore a cui impostare la vita del giocatore
+     * @param int => Value to which to set the life of the player
      */
     void setHealth(int);
 
     /**
      * @brief getHealth
-     * @return vita del giocatore
+     * @return life of the player
      */
     int getHealth() const;
 
     /**
      * @brief getHandSize
-     * @return numero di carte nella mano del giocatore
+     * @return number of cards in the player's hand
      */
     int getHandSize() const;
 
     /**
      * @brief getHand
-     * @return lista delle carte in mano al giocatore
+     * @return list of cards in the player's hand
      */
     DLList<DeepPtr<Card>>& getHand();
 
     /**
      * @brief getDeckSize
-     * @return numero di carte nel deck del giocatore
+     * @return number of cards in the player's deck
      */
     int getDeckSize() const;
 
     /**
      * @brief isInGame
-     * @return true se il giocatore è ancora vivo, false altrimenti
+     * @return true if the player is still alive, false otherwise
      */
     bool isInGame() const;
 
     /**
-     * @brief addSkipTurn => aggiunge un turno da saltare
+     * @brief addSkipTurn => adds a turn to skip
      */
     void addSkipTurn();
 
     /**
-     * @brief removeSkipTurn => rimuove un turno da saltare
+     * @brief removeSkipTurn => removes a turn to be skipped
      */
     void removeSkipTurn();
 
     /**
      * @brief getTurnsToSkip
-     * @return numero di turni da saltare
+     * @return number of turns to skip
      */
     int getTurnsToSkip() const;
 
     /**
-     * @brief drawCard => aggiunge una carta alla mano del giocatore pescando dal mazzo
+     * @brief drawCard => adds a card to the player's hand by drawing from the deck
      */
     void drawCard();
 
     /**
-     * @brief removeCardFromHand => rimuove una carta dalla mano del giocatore
+     * @brief removeCardFromHand => removes a card from the player's hand
      */
     void removeCardFromHand(int);
 };

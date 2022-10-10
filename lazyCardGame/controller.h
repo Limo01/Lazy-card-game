@@ -16,41 +16,41 @@ private:
 
 public:
     /**
-     * @brief Controller => Costruttore della classe Controller
-     * @param parent => QObject*, puntatore al parent
+     * @brief Controller => Class Controller constructor
+     * @param parent => QObject*, pointer to parent
      */
     Controller(QObject* parent= nullptr);
 
     /**
-     * @brief ~Controller => Distruttore della classe Controller
+     * @brief ~Controller => Class Controller destructor
      */
     ~Controller();
 
     /**
      * @brief setModel
-     * @param m => Model*, model da assegnare al controller
+     * @param m => Model*, model to assign to the controller
      */
     void setModel(Model* m);
 
     /**
      * @brief setView
-     * @param v => View*, view da assegnare al controller
+     * @param v => View*, view to assign to the controller
      */
     void setView(View* v);
 
 public slots:
     /**
-     * @brief playTurn => Funzione chiamata nel momento in cui viene premuto il bottone per eseguire la mossa del giocatore
+     * @brief playTurn => Function called when the button to execute the player's move is pressed
      */
     void playTurn();
 
     /**
-     * @brief restartGame => Funzione chiamata quando viene premuto il tasto per cominciare una nuova partita
+     * @brief restartGame => Function called when the button to start a new game is pressed
      */
     void restartGame();
 
     /**
-     * @brief cardsDescription => Funzione chiamata quando viene premuto il tasto per vedere l'effetto delle carte attualmente nella mano
+     * @brief cardsDescription => Function called when the button to see the effect of the cards currently in the hand is pressed
      */
     void cardsDescription();
 };

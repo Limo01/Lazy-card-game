@@ -33,5 +33,5 @@ void PlayerInfo::setHeartsNumber(int h)
 
 void PlayerInfo::setDeckSize(int s)
 {
-    deckSize->setText("Carte nel mazzo: "+QString::number(s));
+    deckSize->setText("Cards in the deck: "+QString::number(s));
 };

@@ -13,58 +13,58 @@ class CpuPlayer : public Player
 {
 private:
     /**
-     * @brief findThisTarget => Funzione per trovare l'indice del giocatore che chiama la funzione all'interno della lista players
-     * @param players => DLList<DeepPtr<Player>>, lista dei giocatori passata per referenza
-     * @param targetPlayer => int, variabile passata per referenza che conterrà l'indice del giocatore
+     * @brief findThisTarget => Function to find the index of the player that is calling the function within the players list
+     * @param players => DLList<DeepPtr<Player>>, list of players passed by reference
+     * @param targetPlayer => int, variable passed by reference that will contain the player's index
      */
     void findThisTarget(DLList<DeepPtr<Player>>& players, int& targetPlayer) const;
 
     /**
-     * @brief searchHealCard => Funzione per cercare la carta salute con valore più alto all'interno della mano
-     * @param targetCard => int, variabile passata per referenza che conterrà l'indice della carta all'interno della mano del giocatore (se la trova, altrimenti conterrà il valore iniziale)
+     * @brief searchHealCard => Function to search for the health card with the highest value in the hand
+     * @param targetCard => int, variable passed by reference that will contain the index of the card inside the player's hand (if found, otherwise it will contain the initial value)
      */
     void searchHealCard(int& targetCard);
 
     /**
-     * @brief searchPossibleKill => Funzione per vedere se è possibbile uccidere uno tra i giocatori usando un dato valore di attacco
-     * @param players => DLList<DeepPtr<Player>>, lista dei giocatori passata per referenza
-     * @param targetPlayer => int, variabile passata per referenza che conterrà l'indice del giocatore selezionato (se lo trova, altrimenti conterrà il valore iniziale)
-     * @param attackValue => int, valore di attacco della carta che vogliamo usare
+     * @brief searchPossibleKill => Function to see if it is possible to kill one of the players using a given attack value
+     * @param players => DLList<DeepPtr<Player>>, list of players passed by reference
+     * @param targetPlayer => int, variable passed by reference that will contain the index of the selected player (if found, otherwise it will contain the initial value)
+     * @param attackValue => int, attack value of the card we want to use
      */
     void searchPossibleKill(DLList<DeepPtr<Player>>& players, int& targetPlayer, int attackValue) const;
 
     /**
-     * @brief searchPossibleAttack => Funzione per cercare se è possibbile sferrare un attacco fatale a un giocatore
-     * @param players => DLList<DeepPtr<Player>>, lista dei giocatori passata per referenza
-     * @param targetCard => int, variabile passata per referenza che conterrà l'indice della carta attacco all'interno della mano del giocatore (solo se ha trovato un possibile attacco, altrimenti conterrà il valore iniziale)
-     * @param targetPlayer => int, variabile passata per referenza che conterrà l'indice del giocatore selezionato (solo se ha trovato un possibile attacco, altrimenti conterrà il valore iniziale)
+     * @brief searchPossibleAttack => Function to search if it is possible to launch a fatal attack on a player
+     * @param players => DLList<DeepPtr<Player>>, list of players passed by reference
+     * @param targetCard => int, variable passed by reference that will contain the index of the attack card inside the player's hand (only if he has found a possible attack, otherwise it will contain the initial value)
+     * @param targetPlayer => int, variable passed by reference that will contain the index of the selected player (only if it has found a possible attack, otherwise it will contain the initial value)
      */
     void searchPossibleAttack(DLList<DeepPtr<Player>>& players, int& targetCard, int& targetPlayer);
 
 public:
     /**
-     * @brief CpuPlayer => Costruttore della classe CpuPlayer
-     * @param std::string => nome del giocatore
-     * @param Deck<DeepPtr<Card>> => deck di carte
-     * @param int => vita iniziale del giocatore (valore di default=30);
+     * @brief CpuPlayer => Classe CpuPlayer constructor
+     * @param std::string => player name
+     * @param Deck<DeepPtr<Card>> => deck of cards
+     * @param int => player's initial life (default = 30)
      */
     CpuPlayer(std::string, Deck<DeepPtr<Card>>, int=30);
 
     /**
-     * @brief ~CpuPlayer => Distruttore della classe CpuPlayer
+     * @brief ~CpuPlayer => Class CpuPlayer destructor
      */
     ~CpuPlayer();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     CpuPlayer* clone() const override;
 
     /**
      * @brief playTurn
-     * @param DLList<DeepPtr<Player>>& => lista dei giocatori passata per referenza
-     * @return mossa effettuata (carta giocata e giocatore target)
+     * @param DLList<DeepPtr<Player>>& => list of players passed by reference
+     * @return move made (card played and target player)
      */
     std::string playTurn(DLList<DeepPtr<Player>>&);
 };

@@ -12,81 +12,81 @@ private:
     T* cards;
 
     /**
-     * @brief deepCopy => Funzione per copiare un array di carte
-     * @param t => T*, array di carte da copiare
-     * @param size => int, dimensione dell'array da copiare
-     * @return array di carte copiato
+     * @brief deepCopy => Function to copy an array of cards
+     * @param t => T*, array of cards to copy
+     * @param size => int, size of the array to be copied
+     * @return card array copied
      */
     static T* deepCopy(T* t, const unsigned int size);
 
 public:
     /**
-     * @brief Deck => Costruttore della classe Deck
-     * @param s => int, massima grandezza del mazzo
+     * @brief Deck => Class Deck constructor
+     * @param s => int, maximum deck size
      */
     Deck(unsigned int s=52);
 
     /**
-     * @brief Deck => Costruttore di copia della classe Deck
+     * @brief Deck => Class Deck copy contructor
      * @param d => Deck, deck da copiare
      */
     Deck(const Deck& d);
 
     /**
-     * @brief ~Deck => Distruttore della classe Deck
+     * @brief ~Deck => Class Deck destructor
      */
     ~Deck();
 
     /**
      * @brief getSize
-     * @return numero di carte presenti nel decks
+     * @return number of cards present in the deck
      */
     int getSize() const;
 
     /**
      * @brief isEmpty
-     * @return true se il mazzo è vuoto, false altrimenti
+     * @return true if the deck is empty, false otherwise
      */
     bool isEmpty() const;
 
     /**
-     * @brief push_top => Inserimento in cima al deck. Metodo più efficiente per inserire una carta nel deck
-     * @param t => T, carta da aggiungere
+     * @brief push_top => Insertion at the top of the deck. Most efficient way to insert a card into the deck
+     * @param t => T, card to add
      */
     void push_top(const T& t);
 
     /**
-     * @brief push_bottom => Inserimento in fondo al mazzo
-     * @param t => T, carta da aggiungere
+     * @brief push_bottom => Insertion at the bottom of the deck
+     * @param t => T, card to add
      */
     void push_bottom(const T& t);
 
     /**
      * @brief drawCard
-     * @return carta pescata
+     * @return card drawn
      */
     T drawCard();
 
     /**
-     * @brief shuffle => Mescola le carte
+     * @brief shuffle => Shuffle the cards
      */
     void shuffle();
 
     /**
      * @brief operator =
-     * @param d => Deck, deck da copiare
-     * @return deck copiato
+     * @param d => Deck, deck to be copied
+     * @return copied deck
      */
     Deck& operator=(const Deck& d);
 
     /**
      * @brief operator []
-     * @param i => int, indice della carta da ottenere
-     * @return carta
+     * @param i => int, index of the card to be obtained
+     * @return card
      */
     T& operator[](unsigned int i) const;
 
-    //const Iterator: La visita del mazzo visualizza l'ordine con il quale verrano pescate le carte: in particolare begin() ha come riferimento la prossima carta che verrà pescata, quindi la posizione size-1 dell'array
+    //const Iterator: Visiting the deck displays the order in which the cards will be drawn: in particular, begin () refers to the next card that will be drawn, therefore the size-1 position of the array
     class Const_iterator
     {
         friend class Deck <T>;
@@ -96,113 +96,113 @@ public:
         int visited;
 
         /**
-         * @brief Const_iterator => Costruttore privato della classe Const_iterator
-         * @param p => T*, array da iterare
-         * @param s => int, dimensione dell'array
+         * @brief Const_iterator => Class Const_iterator private contructor
+         * @param p => T*, array to iterate
+         * @param s => int, array size
          */
         Const_iterator(T* p, int s, int v);
 
     public:
         /**
-         * @brief operator ++ prefisso
-         * @return elemento successivo dell'iterazione
+         * @brief operator ++ prefix
+         * @return next element of the iteration
          */
         Const_iterator& operator++();
 
         /**
-         * @brief operator ++ (int) postfisso
-         * @return elemento corrente dell'iterazione e passa al successivo
+         * @brief operator ++ (int) postfix
+         * @return current element of the iteration and moves on to the next
          */
         Const_iterator operator++(int);
 
         /**
-         * @brief operator -- prefisso
-         * @return elemento precedente dell'iterazione
+         * @brief operator -- prefix
+         * @return previous element of the iteration
          */
         Const_iterator& operator--();
 
         /**
-         * @brief operator -- (int) postfisso
-         * @return elemento corrente dell'iterazione e passa al precedente
+         * @brief operator -- (int) postfix
+         * @return current element of the iteration and moves to the previous one
          */
         Const_iterator operator--(int);
 
         /**
          * @brief operator +=
-         * @return elemento n posizioni successive rispetto a quello attuale
+         * @return element n successive positions with respect to the current one
          */
         Const_iterator& operator+=(int);
 
         /**
          * @brief operator -=
-         * @return elemento n posizioni precedenti rispetto a quello attuale
+         * @return element n previous positions compared to the current one
          */
         Const_iterator& operator-=(int);
 
         /**
          * @brief operator ==
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se i due iteratori sono uguali, false altrimenti
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the two iterators are equal, false otherwise
          */
         bool operator==(const Const_iterator& i) const;
 
         /**
          * @brief operator !=
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se i due iteratori sono diversi, false altrimenti
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the two iterators are different, false otherwise
          */
         bool operator!=(const Const_iterator& i) const;
 
         /**
          * @brief operator >
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se l'iteratore chiamante è maggiore di quello confrontato
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the calling iterator is greater than the one being compared
          */
         bool operator>(const Const_iterator& i) const;
 
         /**
          * @brief operator >=
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se l'iteratore chiamante è maggiore o uguale a quello confrontato
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the calling iterator is greater than or equal to the one being compared
          */
         bool operator>=(const Const_iterator& i) const;
 
         /**
          * @brief operator <
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se l'iteratore chiamante è minore di quello confrontato
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the calling iterator is less than the one being compared
          */
         bool operator<(const Const_iterator& i) const;
 
         /**
          * @brief operator <=
-         * @param i => Const_iterator, iteratore da confrontare passato per referenza
-         * @return true se l'iteratore chiamante è minore o uguale a quello confrontato
+         * @param i => Const_iterator, iterator to compare passed by reference
+         * @return true if the calling iterator is less than or equal to the one being compared
          */
         bool operator<=(const Const_iterator& i) const;
 
         /**
          * @brief operator *
-         * @return T, valore puntatore dereferenziato come riferimento costante
+         * @return T, pointer value dereferenced as a constant reference
          */
         const T& operator*() const;
 
         /**
          * @brief operator ->
-         * @return puntatore costante puntato dell'iteratore
+         * @return constant pointer to the iterator
          */
         const T* operator->() const;
     };
 
     /**
      * @brief begin
-     * @return inizio dell'iteratore
+     * @return start of the iterator
      */
     Const_iterator begin() const;
 
     /**
      * @brief end
-     * @return fine dell'iteratore
+     * @return end of iterator
      */
     Const_iterator end() const;
 };
@@ -292,8 +292,8 @@ void Deck<T>::shuffle()
 
         for(unsigned int i=0; i<size; i++)
         {
-            n1= (rand() % size);//primo numero casuale
-            n2= (rand() % size);//secondo numero casuale
+            n1= (rand() % size);//first casual number
+            n2= (rand() % size);//second casual number
 
             aux= cards[n1];
             cards[n1]= cards[n2];

@@ -16,10 +16,10 @@ void HealCard::do_effect(DLList<DeepPtr<Player>>& players, int target) const
 
 std::string HealCard::getName() const
 {
-    return "Cura " + std::to_string(getHeartsNumber());
+    return "Heal " + std::to_string(getHeartsNumber());
 };
 
 std::string HealCard::getDescription() const
 {
-    return "Scegli un giocatore al quale aggiungere " + std::to_string(getHeartsNumber()) + " alla sua vita";
+    return "Choose a player to add " + std::to_string(getHeartsNumber()) + " hearts to his life";
 };

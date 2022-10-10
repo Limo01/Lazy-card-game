@@ -20,32 +20,32 @@ private:
 
 public:
     /**
-     * @brief RadioButtonsList => Costruttore della classe RadioButtonsList
-     * @param name => QString, nome del gruppo di radio button
-     * @param parent => QWidget*, puntatore al parent
+     * @brief RadioButtonsList => Class RadioButtonsList constructor
+     * @param name => QString, Radio button group name
+     * @param parent => QWidget*, pointer to parent
      */
     RadioButtonsList(const QString& name, QWidget* parent= nullptr);
 
     /**
-     * @brief ~RadioButtonsList => Distruttore della classe RadioButtonsList
+     * @brief ~RadioButtonsList => Class RadioButtonsList destructor
      */
     ~RadioButtonsList();
 
     /**
-     * @brief addButton => Funzione per aggiungere un radio button alla lista
-     * @param name => QString, nome da dare al radio button
-     * @param i => int, id da assegnare al radio button
+     * @brief addButton => Function to add a radio button to the list
+     * @param name => QString, name to give to the radio button
+     * @param i => int, id to assign to the radio button
      */
     void addButton(const QString& name, int i);
 
     /**
-     * @brief removeButtons => Funzione per rimuovere tutti i radio button dalla lista
+     * @brief removeButtons => Function to remove all radio buttons from the list
      */
     void removeButtons();
 
     /**
      * @brief getButtonClicked
-     * @return id del bottone attualmente selezionato
+     * @return id of the currently selected button
      */
     int getButtonClicked() const;
 };

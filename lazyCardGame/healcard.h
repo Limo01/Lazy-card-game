@@ -7,38 +7,38 @@ class HealCard : public HealthEffectCard
 {
 public:
     /**
-     * @brief HealCard => Costruttore della classe HealCard
-     * @param => int, numero di cuori da aggiugnere alla vita di un giocatore
+     * @brief HealCard => Classe HealCard constructor
+     * @param => int, number of hearts to add to a player's life
      */
     HealCard(int);
 
     /**
-     * @brief ~HealCard => Distruttore della classe HealCard
+     * @brief ~HealCard => Class HealCard destructor
      */
     virtual ~HealCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     HealCard* clone() const override;
 
     /**
      * @brief do_effect
-     * @param players => lista dei giocatori
-     * @param target => giocatore su cui applicare l'effetto della carta
+     * @param players => list of players
+     * @param target => player to apply the card effect to
      */
     void do_effect(DLList<DeepPtr<Player>>& players, int target=-1) const override;
 
     /**
      * @brief getName
-     * @return nome della carta
+     * @return card name
      */
     std::string getName() const override;
 
     /**
      * @brief getDescription
-     * @return descrizione della carta
+     * @return card description
      */
     std::string getDescription() const override;
 };

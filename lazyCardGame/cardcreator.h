@@ -16,61 +16,61 @@ class CardCreator
 {
 public:
     /**
-     * @brief CardCreator => Costruttore della classe CardCreator
+     * @brief CardCreator => Class CardCreator constructor
      */
     CardCreator();
 
     /**
-     * @brief ~CardCreator => Distruttore della classe CardCreator
+     * @brief ~CardCreator => Class CardCreator destructor
      */
     ~CardCreator();
 
     /**
      * @brief createSingleAttackCard
-     * @return carta di tipo SingleAttackCard
+     * @return SingleAttackCard type card
      */
     DeepPtr<Card> createSingleAttackCard(int=0) const;
 
     /**
      * @brief createMultipleAttackCard
-     * @return carta di tipo MultipleAttackCard
+     * @return MultipleAttackCard type card
      */
     DeepPtr<Card> createMultipleAttackCard(int=0) const;
 
     /**
      * @brief createHealCard
-     * @return carta di tipo HealCard
+     * @return HealCard type card
      */
     DeepPtr<Card> createHealCard(int=0) const;
 
     /**
      * @brief createSkipTurnCard
-     * @return carta di tipo SkipTurnCard
+     * @return SkipTurnCard type card
      */
     DeepPtr<Card> createSkipTurnCard() const;
 
     /**
      * @brief createDrawCardsCard
-     * @return carta di tipo DrawCardsCard
+     * @return DrawCardsCard type card
      */
     DeepPtr<Card> createDrawCardsCard(int=0) const;
 
     /**
      * @brief createDiscardCardsCard
-     * @return carta di tipo DiscardCardsCard
+     * @return DiscardCardsCard type card
      */
     DeepPtr<Card> createDiscardCardsCard(int=0) const;
 
     /**
      * @brief createRandomCard
-     * @return carta di tipo random
+     * @return random type card
      */
     DeepPtr<Card> createRandomCard() const;
 
     /**
      * @brief createRandomDeck
-     * @param int => numero di carte del mazzo
-     * @return mazzo di carte random
+     * @param int => number of cards in the deck
+     * @return random deck of cards
      */
     Deck<DeepPtr<Card>> createRandomDeck(int=52) const;
 };

@@ -40,93 +40,93 @@ class View : public QWidget {
     Controller* controller;
 
     /**
-     * @brief addMenus => Funzione per creare la menu bar
-     * @param gridLayout => QGridLayout*, puntatore al grid layout principale
+     * @brief addMenus => Function to create the menu bar
+     * @param gridLayout => QGridLayout*, pointer to the main grid layout
      */
     void addMenus(QGridLayout* gridLayout);
 
     /**
-     * @brief addCpuPlayersInfo => Funzione per creare la zona delle informazione dei giocatori controllati dal computer
-     * @param gridLayout => QGridLayout*, puntatore al grid layout principale
+     * @brief addCpuPlayersInfo => Function to create the cpu players info area
+     * @param gridLayout => QGridLayout*, pointer to the main grid layout
      */
     void addCpuPlayersInfo(QGridLayout* gridLayout);
 
     /**
-     * @brief addPlayerInfo => Funzione per creare la zona delle informazioni del giocatore
-     * @param gridLayout => QGridLayout*, puntatore al grid layout principale
+     * @brief addPlayerInfo => Function to create the player info area
+     * @param gridLayout => QGridLayout*, pointer to the main grid layout
      */
     void addPlayerInfo(QGridLayout* gridLayout);
 
     /**
-     * @brief addLogArea => Funzione per creare la zona del log delle mosse
-     * @param gridLayout => QGridLayout*, puntatore al grid layout principale
+     * @brief addLogArea => Function to create the moves log area
+     * @param gridLayout => QGridLayout*, pointer to the main grid layout
      */
     void addLogArea(QGridLayout* gridLayout);
     
 public:
     /**
-     * @brief View => Costruttore della classe View
-     * @param parent => QWidget*, puntatore al parent
+     * @brief View => Class View constructor
+     * @param parent => QWidget*, pointer to parent
      */
     View(QWidget *parent = nullptr);
 
     /**
      * @brief setController
-     * @param c => Controller*, puntatore al controller da assegnare
+     * @param c => Controller*, pointer to the controller to assign
      */
     void setController(Controller* c);
 
     /**
      * @brief getCardPlayed
-     * @return indice della carta selezionata dal giocatore
+     * @return index of the player selected card
      */
     int getCardPlayed() const;
 
     /**
      * @brief getPlayerTarget
-     * @return indice del target selezionato dal giocatore
+     * @return index of the player selected target
      */
     int getPlayerTarget() const;
 
     /**
-     * @brief showPlayersInfo => Funzione per aggiornare i valori dei giocatori
-     * @param players => DLList<DeepPtr<Player>>, lista dei giocatori passati per referenza
+     * @brief showPlayersInfo => Function to update the values of the players
+     * @param players => DLList<DeepPtr<Player>>, players list passed by reference
      */
     void showPlayersInfo(DLList<DeepPtr<Player>>& players);
 
     /**
-     * @brief showPlayerHand => Funzione per mostrare la mano di carte del giocatore
-     * @param hand => DLList<DeepPtr<Card>>, lista delle carte passata per referenza
+     * @brief showPlayerHand => Function to show the player's hand
+     * @param hand => DLList<DeepPtr<Card>>, players list passed by reference
      */
     void showPlayerHand(DLList<DeepPtr<Card>>& hand);
 
     /**
-     * @brief showTargetPlayers => Funzione per mostrare la lista dei giocatori target
-     * @param players => DLList<DeepPtr<Player>>, lista dei giocatori passati per referenza
+     * @brief showTargetPlayers => Function to show the list of target players
+     * @param players => DLList<DeepPtr<Player>>, players list passed by reference
      */
     void showTargetPlayers(DLList<DeepPtr<Player>>& players);
 
     /**
-     * @brief showTurn => Funzione per mostrare il turno attuale
-     * @param i => int, turno
+     * @brief showTurn => Function to show the current shift
+     * @param i => int, turn
      */
     void showTurn(int i);
 
     /**
-     * @brief showMovesLog => Funzione per aggiornare il log delle mosse
-     * @param movesLog => std::string, log passato per referenza
+     * @brief showMovesLog => Function to update the moves log
+     * @param movesLog => std::string, log passed by reference
      */
     void showMovesLog(const std::string& movesLog);
 
     /**
-     * @brief showHandCardsDescription => Funzione per mostrare un Dialog con la descrizione della carte nella mano del giocatore
-     * @param hand => DLList<DeepPtr<Card>>, lista delle carte passata per referenza
+     * @brief showHandCardsDescription => Function to show a Dialog with the description of the cards in the player's hand
+     * @param hand => DLList<DeepPtr<Card>>, cards list passed by reference
      */
     void showHandCardsDescription(DLList<DeepPtr<Card>>& hand);
 
 public slots:
     /**
-     * @brief showGameRules => Funzione per mostrare un Dialog dove vengono spiegate le regole del gioco
+     * @brief showGameRules => Function to show a Dialog where the rules of the game are explained
      */
      void showGameRules();
 };

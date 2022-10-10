@@ -17,176 +17,176 @@ private:
 
     /**
      * @brief destroy
-     * @param n, node* nodo dal quale iniziare la distruzione profonda della lista
+     * @param n, node* node from which to start the deep destruction of the list
      */
     static void destroy(node* n);
 
     /**
      * @brief deep_copy
-     * @param src => node* nodo dal quale iniziare la copia profonda della lista
-     * @param fst => node* passato per referenza, nodo iniziale della lista in cui verrà copiata src
-     * @param last => node* passato per referenza, nodo finale della lista in cui verrà copiata src
+     * @param src => node* node from which to start deep copy of the list
+     * @param fst => node* passed by reference, starting node of the list where src will be copied
+     * @param last => node* passed by reference, final node of the list where src will be copied
      */
     static void deep_copy(node *src, node*& fst, node*& last);
 
-    node *first, *last; // puntatori al primo e ultimo nodo della lista
-    // lista vuota IFF first == nullptr == last
+    node *first, *last; // pointers to the first and last node in the list
+    // empty list IFF first == nullptr == last
     int size;
 
 public:
     /**
-     * @brief DLList => Costruttore della classe DLList
+     * @brief DLList => Class DLList constructor
      */
     DLList();
 
     /**
-     * @brief DLList => Costruttore di copia della clase DLList
-     * @param l => lista da copiare
+     * @brief DLList => Class DLList copy constructor
+     * @param l => list to copy
      */
     DLList(const DLList& l);
 
     /**
-     * @brief ~DLList => Distruttore della classe DLList
+     * @brief ~DLList => Class DLList destructor
      */
     ~DLList();
 
     /**
      * @brief getSize
-     * @return numero di elementi nella lista
+     * @return number of items in the list
      */
     int getSize() const;
 
     /**
      * @brief isEmpty
-     * @return true se la lista è vuota, false altrimenti
+     * @return true if the list is empty, false otherwise
      */
     bool isEmpty() const;
 
     /**
      * @brief push_front
-     * @param t => T, elemento da inserire all'inizio della lista
+     * @param t => T, element to be inserted at the beginning of the list
      */
     void push_front(const T& t);
 
     /**
      * @brief push_back
-     * @param t => T, elemento da aggiungere alla fine della lista
+     * @param t => T, item to add to the end of the list
      */
     void push_back(const T& t);
 
     /**
      * @brief removeFront
-     * @return primo elemento della lista
+     * @return first element of the list
      */
     T removeFront();
 
     /**
      * @brief removeBack
-     * @return ultimo elemento della lista
+     * @return last item in the list
      */
     T removeBack();
 
     /**
      * @brief remove
-     * @param i => int, indice dell'elemento da rimuovere
-     * @return elemento all'indice i
+     * @param i => int, index of the item to remove
+     * @return element at index i
      */
     T remove(int i);
 
     /**
      * @brief operator =
-     * @param l => DLList, lista da copiare
-     * @return lista copiata
+     * @param l => DLList, list to copy
+     * @return copied list
      */
     DLList& operator=(const DLList& l);
 
     /**
      * @brief operator []
-     * @param i => int, indice
-     * @return elemento alla posizione i ritornato per referenza
+     * @param i => int, index
+     * @return element at position i returned by reference
      */
     T& operator[](int i) const;
 
     class Iterator
     {
         friend class DLList <T>;
-    private: //const_iterator indefinito IFF ptr==nullptr & past_the_end==false
+    private: //const_iterator undefined IFF ptr==nullptr & past_the_end==false
         node* ptr;
         bool past_the_end;
 
         /**
-         * @brief Iterator => Costruttore privato della classe Iterator
-         * @param p => node*, puntatore al nodo iniziale
-         * @param pte => bool, past_the_end per segnalare se è andato oltre la fine della lista
+         * @brief Iterator => Class Iterator private constructor
+         * @param p => node*, pointer to the starting node
+         * @param pte => bool, past_the_end to report if it has gone beyond the end of the list
          */
         Iterator(node* p, bool pte= false);
 
     public:
         /**
-         * @brief Iterator => Costruttore della classe Iterator
+         * @brief Iterator => Class Iterator constructor
          */
         Iterator();
 
         /**
-         * @brief operator ++ prefisso
-         * @return elemento successivo dell'iterazione
+         * @brief operator ++ prefix
+         * @return next element of the iteration
          */
         Iterator& operator++();
 
         /**
-         * @brief operator ++ (int) postfisso
-         * @return elemento corrente dell'iterazione e passa al successivo
+         * @brief operator ++ (int) postfix
+         * @return current element of the iteration and moves on to the next
          */
         Iterator operator++(int);
 
         /**
-         * @brief operator -- prefisso
-         * @return elemento precedente dell'iterazione
+         * @brief operator -- prefix
+         * @return previous element of the iteration
          */
         Iterator& operator--();
 
         /**
-         * @brief operator -- (int) postfisso
-         * @return elemento corrente dell'iterazione e passa al precedente
+         * @brief operator -- (int) postfix
+         * @return current element of the iteration and moves to the previous one
          */
         Iterator operator--(int);
 
         /**
          * @brief operator ==
-         * @param it => Iterator, iteratore da confrontare passato per referenza
-         * @return true se i due iteratori sono uguali, false altrimenti
+         * @param it => Iterator, iterator to compare passed by reference
+         * @return true if the two iterators are equal, false otherwise
          */
         bool operator==(const Iterator& it) const;
 
         /**
          * @brief operator !=
-         * @param it => Iterator, iteratore da confrontare passato per referenza
-         * @return true se i due iteratori sono diversi, false altrimenti
+         * @param it => Iterator, iterator to compare passed by reference
+         * @return true if the two iterators are different, false otherwise
          */
         bool operator!=(const Iterator& it) const;
 
         /**
          * @brief operator *
-         * @return T, valore del campo info del puntatore di tipo nodo
+         * @return T, value of the info field of the node type pointer
          */
         T& operator*() const;
 
         /**
          * @brief operator ->
-         * @return T*, puntatore al campo info del puntatore di tipo nodo
+         * @return T*, pointer to the info field of the node-type pointer
          */
         T* operator->() const;
     };
 
     /**
      * @brief begin
-     * @return inizio dell'iteratore
+     * @return start of the iterator
      */
     Iterator begin();
 
     /**
      * @brief end
-     * @return fine dell'iteratore
+     * @return end of the iterator
      */
     Iterator end();
 };
@@ -255,11 +255,11 @@ template <class T>
 void DLList<T>::push_front(const T& t)
 {
     first = new node(t,nullptr,first);
-    if(first->next==nullptr) //lista di invocazione era vuota
+    if(first->next==nullptr) //invocation list was empty
     {
         last=first;
     }
-    else //lista di invocazione NON era vuota
+    else //invocation list wasn't empty
     {
         (first->next)->prev=first;
     }
@@ -269,12 +269,12 @@ void DLList<T>::push_front(const T& t)
 template <class T>
 void DLList<T>::push_back(const T& t)
 {
-    if(last) //lista non vuota
+    if(last) //not empty list
     {
         last = new node(t,last,nullptr);
         (last->prev)->next=last;
     }
-    else//lista vuota
+    else//empty list
     {
         first=last=new node(t);
     }

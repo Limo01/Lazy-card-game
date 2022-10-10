@@ -19,10 +19,10 @@ void MultipleAttackCard::do_effect(DLList<DeepPtr<Player>>& players, int) const
 
 std::string MultipleAttackCard::getName() const
 {
-    return "Attacco multiplo " + std::to_string(getHeartsNumber());
+    return "Multiple attack " + std::to_string(getHeartsNumber());
 };
 
 std::string MultipleAttackCard::getDescription() const
 {
-    return "Rimuovi " + std::to_string(getHeartsNumber()) + " cuori a tutti i giocatori";
+    return "Remove " + std::to_string(getHeartsNumber()) + " hearts to all players";
 };

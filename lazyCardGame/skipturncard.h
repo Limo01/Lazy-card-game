@@ -7,37 +7,37 @@ class SkipTurnCard : public Card
 {
 public:
     /**
-     * @brief SkipTurnCard => Costruttore della classe SkipTurnCard
+     * @brief SkipTurnCard => Class SkipTurnCard constructor
      */
     SkipTurnCard();
 
     /**
-     * @brief ~SkipTurnCard => Distruttore della classe SkipTurnCard
+     * @brief ~SkipTurnCard => Class SkipTurnCard destructor
      */
     virtual ~SkipTurnCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     SkipTurnCard* clone() const override;
 
     /**
      * @brief do_effect
-     * @param players => lista dei giocatori
-     * @param target => giocatore su cui applicare l'effetto della carta
+     * @param players => Players list
+     * @param target => Player to apply the card effect to
      */
     void do_effect(DLList<DeepPtr<Player>>& players, int target=-1) const override;
 
     /**
      * @brief getName
-     * @return nome della carta
+     * @return card name
      */
     std::string getName() const override;
 
     /**
      * @brief getDescription
-     * @return descrizione della carta
+     * @return card description
      */
     std::string getDescription() const override;
 };

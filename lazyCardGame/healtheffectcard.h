@@ -10,39 +10,39 @@ private:
 
 public:
     /**
-     * @brief HealthEffectCard => Costruttore della classe HealthEffectCard
-     * @param int => numero di cuori dell'effetto (deve essere > 0)
+     * @brief HealthEffectCard => Class HealthEffectCard contructor
+     * @param int => number of hearts in the effect (must be> 0)
      */
     HealthEffectCard(int);
 
     /**
-     * @brief ~HealthEffectCard => Distruttore della classe HealthEffectCard
+     * @brief ~HealthEffectCard => Class HealthEffectCard destructor
      */
     virtual ~HealthEffectCard();
 
     /**
      * @brief clone
-     * @return clone dell'oggetto di invocazione
+     * @return clone of the invocation object
      */
     virtual Card* clone() const override= 0;
 
     /**
      * @brief getHeartsNumber
-     * @return numero di cuori dell'effetto
+     * @return number of hearts of the effect
      */
     int getHeartsNumber() const;
 
     /**
      * @brief operator ==
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono uguali, false altrimenti
+     * @param Card => card to compare
+     * @return true if the two cards are equal, false otherwise
      */
     virtual bool operator==(const Card&) const override;
 
     /**
      * @brief operator !=
-     * @param Card => carta da confrontare
-     * @return true se le due carte sono diverse, false altrimenti
+     * @param Card => card to compare
+     * @return true if the two cards are different, false otherwise
      */
     virtual bool operator!=(const Card&) const override;
 };

@@ -8,9 +8,9 @@ void Model::calculateWinner()
         if(it->get()->isInGame())
         {
             if(movesLog.at(0)=='\n')
-                movesLog="Vittoria di "+(*it)->getName()+"!\n"+movesLog;
+                movesLog="Victory of "+(*it)->getName()+"!\n"+movesLog;
             else
-                 movesLog="Vittoria di "+(*it)->getName()+"!\n\n"+movesLog;
+                 movesLog="Victory of "+(*it)->getName()+"!\n\n"+movesLog;
             winner= true;
         }
     }
@@ -18,9 +18,9 @@ void Model::calculateWinner()
     if(!winner)
     {
         if(movesLog.at(0)=='\n')
-            movesLog="Nessun vincitore!\n"+movesLog;
+            movesLog="No winner!\n"+movesLog;
         else
-            movesLog="Nessun vincitore!\n\n"+movesLog;
+            movesLog="No winner!\n\n"+movesLog;
     }
 };
 
@@ -41,12 +41,12 @@ Model::Model(std::string name): playerName(name), movesLog(""), turn(1), gameFin
         begin= (begin+1)%4;
     }
 
-    while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//se durante il turno è stata giocata una carta per far saltare il turno al giocatore
+    while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//if a card was played during the turn to make the player skip the turn
     {
         movesLog="\n"+movesLog;
 
         players[0]->removeSkipTurn();
-        movesLog= players[0]->getName() + " salta il turno \n"+movesLog;
+        movesLog= players[0]->getName() + " skips the turn \n"+movesLog;
 
         for (auto it = ++players.begin(); it != players.end(); it++)
         {
@@ -84,7 +84,7 @@ void Model::playTurn(int cardTarget, int playerTarget)
         if(players[0]->getTurnsToSkip()==0)
         {
             players[0]->getHand()[cardTarget]->do_effect(players, playerTarget);
-            movesLog= players[0]->getName()+" usa "+players[0]->getHand()[cardTarget]->getName()+" su "+players[playerTarget]->getName()+"\n"+movesLog;
+            movesLog= players[0]->getName()+" uses "+players[0]->getHand()[cardTarget]->getName()+" to "+players[playerTarget]->getName()+"\n"+movesLog;
             players[0]->removeCardFromHand(cardTarget);
 
             players[0]->drawCard();
@@ -92,7 +92,7 @@ void Model::playTurn(int cardTarget, int playerTarget)
         else
         {
             players[0]->removeSkipTurn();
-            movesLog= players[0]->getName()+ " salta il turno \n"+movesLog;
+            movesLog= players[0]->getName()+ " skips the turn \n"+movesLog;
         }
 
         for(auto it=++players.begin(); !isGameFinished() && it!=players.end(); it++)
@@ -102,12 +102,12 @@ void Model::playTurn(int cardTarget, int playerTarget)
         }
         turn++;
 
-        while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//se durante il turno è stata giocata una carta per far saltare il turno al giocatore
+        while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//if a card was played during the turn to make the player skip the turn
         {
             movesLog="\n"+movesLog;
 
             players[0]->removeSkipTurn();
-            movesLog= players[0]->getName()+ " salta il turno \n"+movesLog;
+            movesLog= players[0]->getName()+ " skips the turn \n"+movesLog;
 
             for(auto it=++players.begin(); it!=players.end(); it++)
             {
@@ -182,10 +182,10 @@ void Model::restartGame()
         begin= (begin+1)%4;
     }
 
-    while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//se durante il turno è stata giocata una carta per far saltare il turno al giocatore
+    while(!isGameFinished() && players[0]->getTurnsToSkip()>0)//if a card was played during the turn to make the player skip the turn
     {
         players[0]->removeSkipTurn();
-        movesLog= players[0]->getName() + " salta il turno \n\n"+movesLog;
+        movesLog= players[0]->getName() + " skips the turn \n\n"+movesLog;
 
         for (auto it = ++players.begin(); it != players.end(); it++)
         {
