@@ -3,7 +3,9 @@ Realization of a card game using QT framework.
 
 ## How to run - Windows ##
 
-Download the latest realese [here](https://github.com/Limo01/Lazy-card-game/releases/latest) and install the program.
+Download the latest realese and install the program:
+* [Italian version](https://github.com/Limo01/Lazy-card-game/releases/tag/1.1)
+* [English version](https://github.com/Limo01/Lazy-card-game/releases/tag/1.2)
 
 ## How to run - Linux ##
 
